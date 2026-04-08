@@ -1,10 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import {type IPiece, PieceColor, type Position, type PieceType} from "../Pieces/Piece";
 import { isValidMove, executeMove, isCheckmate } from "./GameLogic";
 import { getInitialGameState } from "./GameStart";
 import type {BoardState} from "../Board/Board";
-import type { GameMode } from "../../App/App";
-import { ai } from "../AI/AIService";
 import PieceFactory from "../Pieces/PieceFactory";
 
 export type GameState = {
@@ -23,17 +21,12 @@ export type Turn = PieceColor;
 
 export function useGameState(
     onGameWon?: (winner: string) => void, 
-    onPromote?: (color: PieceColor) => Promise<PieceType>,
-    gameMode: GameMode = '2player'
+    onPromote?: (color: PieceColor) => Promise<PieceType>
 ) {
     const [gameState, setGameState] = useState<GameState>(() => getInitialGameState());
     const [turn, setTurn] = useState<Turn>(PieceColor.White);
 
-    const executePlayerMove = useCallback(async (from: {r: number, c: number}, to: {r: number, c: number}, currentState: GameState, isAIMove: boolean = false) => {
-        if (gameMode === 'ai' && turn !== PieceColor.White && !isAIMove) {
-            return;
-        }
-
+    const executePlayerMove = useCallback(async (from: {r: number, c: number}, to: {r: number, c: number}, currentState: GameState) => {
         if (isValidMove(from, to, currentState.board, turn, currentState)) {
             const targetPiece = currentState.board[to.r][to.c]; // Capture check before move
             const newBoard = executeMove(from, to, currentState.board);
@@ -47,10 +40,8 @@ export function useGameState(
                 if (movingPiece.type === 'Pawn' && (to.r === 0 || to.r === 7)) {
                     let promotedType: PieceType = 'Queen'; // Default
                     
-                    if (onPromote && !isAIMove) {
+                    if (onPromote) {
                         promotedType = await onPromote(movingPiece.color);
-                    } else if (isAIMove) {
-                        promotedType = 'Queen'; // AI always promotes to Queen
                     }
 
                     const factory = new PieceFactory();
@@ -117,28 +108,11 @@ export function useGameState(
         } else {
             console.warn("Invalid move attempted:", from, to);
         }
-    }, [gameMode, turn, onGameWon, onPromote]);
+    }, [turn, onGameWon, onPromote]);
 
     const handleMove = useCallback((from: {r: number, c: number}, to: {r: number, c: number}, currentState: GameState) => {
-        executePlayerMove(from, to, currentState, false);
+        executePlayerMove(from, to, currentState);
     }, [executePlayerMove]);
-
-    // Handle AI move when it's black's turn in AI mode
-    useEffect(() => {
-        if (gameMode === 'ai' && turn === PieceColor.Black) {
-            const timer = setTimeout(async () => {
-                try {
-                    const response = await ai.makeMove(gameState, turn);
-                    console.log("AI Response:", response);
-                    executePlayerMove(response.from, response.to, gameState, true);
-                } catch (error) {
-                    console.error('AI move failed:', error);
-                }
-            });
-
-            return () => clearTimeout(timer);
-        }
-    }, [turn, gameMode, gameState, executePlayerMove]);
 
     return { gameState, handleMove };
 }

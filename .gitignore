@@ -26,3 +26,5 @@ ngrok.yml.*
 *.njsproj
 *.sln
 *.sw?
+
+.ai/*

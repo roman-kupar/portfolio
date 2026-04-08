@@ -1,17 +1,15 @@
 import Board from "../Board/Board"
 import { useGameState } from "./GameState";
-import type { GameMode } from "../../App/App";
 import { useState } from "react";
 import { PieceColor, type PieceType } from "../Pieces/Piece";
 import { getPieceImage } from "../UI/PieceResourceManager/PieceResourceManager";
 import './Game.css';
 
 interface GameProps {
-    gameMode?: GameMode;
     onGameWon?: (winner: string) => void;
 }
 
-function Game({ gameMode = '2player', onGameWon }: GameProps) {
+function Game({ onGameWon }: GameProps) {
     const [promotionInfo, setPromotionInfo] = useState<{color: PieceColor, resolve: (type: PieceType) => void} | null>(null);
 
     const handlePromote = (color: PieceColor): Promise<PieceType> => {
@@ -20,7 +18,7 @@ function Game({ gameMode = '2player', onGameWon }: GameProps) {
         });
     };
 
-    const { gameState, handleMove } = useGameState(onGameWon, handlePromote, gameMode);
+    const { gameState, handleMove } = useGameState(onGameWon, handlePromote);
 
     return (
         <div>
