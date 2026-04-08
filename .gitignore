@@ -11,10 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-.env
-.env.*
-ngrok.yml
-ngrok.yml.*
 
 # Editor directories and files
 .vscode/*
@@ -26,5 +22,3 @@ ngrok.yml.*
 *.njsproj
 *.sln
 *.sw?
-
-.ai/*
