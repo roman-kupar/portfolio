@@ -1,5 +1,6 @@
 import './App.css'
 import Game from '../GameElements/Game/Game'
+import Portfolio from '../Portfolio/Portfolio'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -18,23 +19,25 @@ function App() {
   };
 
   return (
-    <>
-      <header className="app-header">
-        <div className="header-content">
-          <h1>React Chess</h1>
+    <div className="app-layout">
+      <Portfolio />
+      <div className="app-container">
+        <div className="game-header">
+          <h2>React Chess</h2>
           <button className="restart-btn" onClick={handleRestart}>
             Restart Game
           </button>
         </div>
-      </header>
-      
-      <div className="app-container">
         <Game 
           key={gameKey}
           onGameWon={setWinner} 
         />
       </div>
-    </>
+      <footer id="contact" className="portfolio-footer">
+        <p>© {new Date().getFullYear()} Roman Kupar.</p>
+        <p>Contact: <a href="mailto:roman.kuparr@gmail.com">roman.kuparr@gmail.com</a></p>
+      </footer>
+    </div>
   )
 }
 

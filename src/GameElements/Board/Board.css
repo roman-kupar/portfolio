@@ -1,8 +1,8 @@
 .Board {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    width: 80vmin;
-    height: 80vmin;
+    width: 40vmin;
+    height: 40vmin;
     margin: 0 auto;
     gap: 0;
 }
