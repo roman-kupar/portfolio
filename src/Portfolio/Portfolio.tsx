@@ -47,6 +47,7 @@ function Portfolio() {
 
           <div className="profile-card">
             <div className="profile-image-placeholder">
+              {/* <img src="your-image-url-here.jpg" alt="Profile" /> */}
               <span>Photo</span>
             </div>
             <a 
