@@ -34,12 +34,40 @@ function Portfolio() {
               </p>
               <div className="project-grid">
                 <div className="project-card">
-                  <h3>React Chess</h3>
+                  <a href="https://github.com/roman-kupar/portfolio" target="_blank" rel="noopener noreferrer">
+                    <h3>Portfolio</h3>
+                  </a>
+                  <p>My personal portfolio project showcasing my skills and applications.</p>
+                </div>
+                <div className="project-card">
+                  <a href="https://github.com/roman-kupar/react-chess" target="_blank" rel="noopener noreferrer">
+                    <h3>React Chess</h3>
+                  </a>
                   <p>A fully functional 2-player chess game built with React and TypeScript. Play below!</p>
                 </div>
                 <div className="project-card">
-                  <h3>More Coming Soon</h3>
-                  <p>Check back later for more exciting projects!</p>
+                  <a href="https://github.com/roman-kupar/elementals" target="_blank" rel="noopener noreferrer">
+                    <h3>Elementals</h3>
+                  </a>
+                  <p>Artemis Destroyers</p>
+                </div>
+                <div className="project-card">
+                  <a href="https://github.com/roman-kupar/swift-kotlin" target="_blank" rel="noopener noreferrer">
+                    <h3>Swift-Kotlin</h3>
+                  </a>
+                  <p>Java/Kotlin interopability support for Swift</p>
+                </div>
+                <div className="project-card">
+                  <a href="https://github.com/roman-kupar/Rider-Godot-UX" target="_blank" rel="noopener noreferrer">
+                    <h3>Rider-Godot-UX</h3>
+                  </a>
+                  <p>UX improvements for Rider's Godot integration.</p>
+                </div>
+                <div className="project-card">
+                  <a href="https://github.com/roman-kupar/jb-internship-2025-material" target="_blank" rel="noopener noreferrer">
+                    <h3>JB Internship 2025</h3>
+                  </a>
+                  <p>Fork from "Rendering iOS Simulator on IntelliJ IDEA and Android Studio" internship task project</p>
                 </div>
               </div>
             </section>
@@ -47,15 +75,15 @@ function Portfolio() {
 
           <div className="profile-card">
             <div className="profile-image-placeholder">
-              <img src="https://via.placeholder.com/150" alt="Profile" />
+              <img src="/src/assets/profile/profile_picture.png" alt="Profile" />
             </div>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/roman-kupar/"
               target="_blank" 
               rel="noopener noreferrer" 
               className="linkedin-btn"
             >
-              LinkedIn Profile
+              Connect on LinkedIn 🔗
             </a>
           </div>
         </div>
