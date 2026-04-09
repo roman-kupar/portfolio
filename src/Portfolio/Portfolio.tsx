@@ -47,8 +47,7 @@ function Portfolio() {
 
           <div className="profile-card">
             <div className="profile-image-placeholder">
-              {/* <img src="your-image-url-here.jpg" alt="Profile" /> */}
-              <span>Photo</span>
+              <img src="https://via.placeholder.com/150" alt="Profile" />
             </div>
             <a 
               href="https://linkedin.com" 

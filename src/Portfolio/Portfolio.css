@@ -145,10 +145,10 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 0.75rem; /* Reduced padding */
+  padding: 0.5rem; /* Reduced padding */
   border-radius: 6px; /* Slightly smaller border radius */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly softer shadow */
-  width: 130px; /* Reduced width */
+  width: 110px; /* Reduced width */
   flex-shrink: 0; /* Prevent shrinking */
 }
 
@@ -160,7 +160,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.75rem; /* Reduced margin */
+  margin-bottom: 0.5rem; /* Reduced margin */
   border: 2px solid #ccc;
   overflow: hidden; /* Ensure image doesn't overflow the circle */
 }
@@ -182,9 +182,9 @@
   background-color: #0077b5; /* LinkedIn blue */
   color: white;
   text-decoration: none;
-  padding: 0.3rem 0.6rem; /* Reduced padding */
+  padding: 0.2rem 0.4rem; /* Reduced padding */
   border-radius: 3px; /* Slightly smaller radius */
-  font-size: 0.55rem; /* Reduced font size */
+  font-size: 0.5rem; /* Reduced font size */
   font-weight: bold;
   transition: background-color 0.2s;
   text-align: center;
