@@ -145,10 +145,10 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 150px; /* Fixed width for the card */
+  padding: 0.75rem; /* Reduced padding */
+  border-radius: 6px; /* Slightly smaller border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly softer shadow */
+  width: 130px; /* Reduced width */
   flex-shrink: 0; /* Prevent shrinking */
 }
 
@@ -160,8 +160,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* Reduced margin */
   border: 2px solid #ccc;
+  overflow: hidden; /* Ensure image doesn't overflow the circle */
 }
 
 .profile-image-placeholder span {
@@ -169,14 +170,21 @@
   font-size: 0.7rem;
 }
 
+/* Add style for an actual image if it's placed inside */
+.profile-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image fill the circle nicely */
+}
+
 .linkedin-btn {
   display: inline-block;
   background-color: #0077b5; /* LinkedIn blue */
   color: white;
   text-decoration: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.6rem;
+  padding: 0.3rem 0.6rem; /* Reduced padding */
+  border-radius: 3px; /* Slightly smaller radius */
+  font-size: 0.55rem; /* Reduced font size */
   font-weight: bold;
   transition: background-color 0.2s;
   text-align: center;
