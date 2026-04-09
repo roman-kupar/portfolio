@@ -48,13 +48,29 @@
 
 /* Portfolio Content */
 .portfolio-content {
-  max-width: 400px;
-  margin: 0.5rem auto;
-  padding: 0 0.5rem;
+  max-width: 800px; /* Increased to accommodate both columns */
+  margin: 1rem auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row; /* Layout side-by-side */
+  align-items: flex-start; /* Align to the top */
+  justify-content: center;
+  gap: 2rem; /* Space between text and card */
+  width: 100%;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
+}
+
+.profile-text-content {
+  flex: 1; /* Take up remaining space */
+  max-width: 400px; /* Keep text constrained */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
@@ -121,4 +137,53 @@
 .project-card p {
   font-size: 0.55rem;
   margin-bottom: 0;
+}
+
+/* Profile Card Styling */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 150px; /* Fixed width for the card */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.profile-image-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+}
+
+.profile-image-placeholder span {
+  color: #888;
+  font-size: 0.7rem;
+}
+
+.linkedin-btn {
+  display: inline-block;
+  background-color: #0077b5; /* LinkedIn blue */
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.linkedin-btn:hover {
+  background-color: #005582;
 }
